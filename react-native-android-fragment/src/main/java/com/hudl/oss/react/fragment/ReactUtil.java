@@ -16,6 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 package com.hudl.oss.react.fragment;
 
 import android.support.annotation.Nullable;
@@ -33,6 +34,9 @@ import java.util.Map;
  * Helper utilities to convert from react-native types to Java types.
  */
 public class ReactUtil {
+
+    private ReactUtil() {
+    }
 
     /**
      * toObject extracts a value from a {@link ReadableMap} by its key,
@@ -85,7 +89,7 @@ public class ReactUtil {
     /**
      * toMap converts a {@link ReadableMap} into a HashMap.
      *
-     * @param readableMap The ReadableMap to be conveted.
+     * @param readableMap The ReadableMap to be converted.
      * @return A HashMap containing the data that was in the ReadableMap.
      */
     public static Map<String, Object> toMap(@Nullable ReadableMap readableMap) {
@@ -110,15 +114,16 @@ public class ReactUtil {
     /**
      * toList converts a {@link ReadableArray} into an ArrayList.
      *
-     * @param readableArray The ReadableArray to be conveted.
+     * @param readableArray The ReadableArray to be converted.
      * @return An ArrayList containing the data that was in the ReadableArray.
      */
     public static List<Object> toList(@Nullable ReadableArray readableArray) {
         if (readableArray == null) {
-            return null;
+            return new ArrayList<>(0);
         }
 
         List<Object> result = new ArrayList<>(readableArray.size());
+
         for (int index = 0; index < readableArray.size(); index++) {
             ReadableType readableType = readableArray.getType(index);
             switch (readableType) {
@@ -153,6 +158,4 @@ public class ReactUtil {
 
         return result;
     }
-
-
 }
