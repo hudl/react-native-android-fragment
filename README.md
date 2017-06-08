@@ -48,4 +48,4 @@ NOTE: Make sure your environment is set up for [React Native](https://facebook.g
 - `yarn`
 - Open the project in Android Studio and let everything build
 - Back in your terminal run `react-native start`
-- In Android Studio run the `app` on an Emulator or your device
+- In Android Studio run the `app` on an emulator or your device
