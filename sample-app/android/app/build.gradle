@@ -22,8 +22,17 @@ android {
     }
 }
 
+repositories {
+    flatDir {
+        dirs "$rootDir/react-native-android-fragment/libs"
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile project(':react-native-android-fragment')
+
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
