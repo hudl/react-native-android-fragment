@@ -1,4 +1,4 @@
 rootProject.name = 'ReactNative-Android-Fragment'
 
-include ':react-native-android-fragment'
+include ':react-native-android-fragment', ':sample-app/android:app'
 

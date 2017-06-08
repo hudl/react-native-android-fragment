@@ -37,3 +37,15 @@ Fragment messagingFragment = new ReactFragment.Builder()
        .setLaunchOptions(launchOptions) // A Bundle of launch options
        .build();
 ```
+
+## Running Sample App
+
+NOTE: Make sure your environment is set up for [React Native](https://facebook.github.io/react-native/docs/getting-started.html) and [Android](https://developer.android.com/training/index.html) development.
+
+- Clone the repo
+- Open a terminal and navigate to the root directory of your checkout
+- `cd sample-app`
+- `yarn`
+- Open the project in Android Studio and let everything build
+- Back in your terminal run `react-native start`
+- In Android Studio run the `app` on an emulator or your device
