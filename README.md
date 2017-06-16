@@ -12,7 +12,7 @@ repositories {
 
 dependencies {
   // Version will correspond to its dependnecy on React Native
-  compile 'com.hudl.oss:react-native-android-fragment:0.44.0'
+  compile 'com.hudl.oss:react-native-android-fragment:0.43.2'
 }
 ```
 
@@ -22,7 +22,7 @@ Or Maven:
 <dependency>
   <groupId>com.hudl.oss</groupId>
   <artifactId>react-native-android-fragment</artifactId>
-  <version>0.44.0</version>
+  <version>0.43.2</version>
 </dependency>
 ```
 
