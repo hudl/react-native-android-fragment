@@ -6,13 +6,16 @@ React Native Android Fragment isn't available via npm. This is intended to be us
 You can download via Gradle:
 
 ```gradle
-repositories {
-  jcenter()
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
 }
 
 dependencies {
   // Version will correspond to its dependnecy on React Native
-  compile 'com.hudl.oss:react-native-android-fragment:0.43.2'
+  compile 'com.github.hudl:react-native-android-fragment:v0.43.2'
 }
 ```
 
