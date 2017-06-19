@@ -30,7 +30,7 @@ Or Maven:
 ```
 
 ## Usage
-The primary component in this library is [ReactFragment](https://github.com/hudl/react-native-android-fragment/blob/master/react-native-android-fragment/src/main/java/com/hudl/react/fragment/ReactFragment.java)
+The primary component in this library is [ReactFragment](https://github.com/hudl/react-native-android-fragment/blob/master/react-native-android-fragment/src/main/java/com/hudl/oss/react/fragment/ReactFragment.java)
 You can use this class directly if you wish, or you can extend from it to simplify your code.
 
 A Builder pattern is provided out of the box for easy usage:
