@@ -41,6 +41,20 @@ Fragment messagingFragment = new ReactFragment.Builder()
        .build();
 ```
 
+In your Activity make sure to override `onKeyUp()` in order to access the In-App Developer menu:
+
+```java
+@Override
+public boolean onKeyUp(int keyCode, KeyEvent event) {
+    boolean handled = false;
+    Fragment activeFragment = getSupportFragmentManager().findFragmentById(R.id.container_main);
+    if (activeFragment instanceof ReactFragment) {
+        handled = ((ReactFragment) activeFragment).onKeyUp(keyCode, event);
+    }
+    return handled || super.onKeyUp(keyCode, event);
+}
+```
+
 ## Running Sample App
 
 NOTE: Make sure your environment is set up for [React Native](https://facebook.github.io/react-native/docs/getting-started.html) and [Android](https://developer.android.com/training/index.html) development.
