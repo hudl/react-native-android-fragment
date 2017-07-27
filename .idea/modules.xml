@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ReactNative-Android-Fragment.iml" filepath="$PROJECT_DIR$/ReactNative-Android-Fragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample-app/android/app/app.iml" filepath="$PROJECT_DIR$/sample-app/android/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/react-native-android-fragment/react-native-android-fragment.iml" filepath="$PROJECT_DIR$/react-native-android-fragment/react-native-android-fragment.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sample-app/android/sample-app_android.iml" filepath="$PROJECT_DIR$/sample-app/android/sample-app_android.iml" />
+    </modules>
+  </component>
+</project>

@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+
+# node
+#
+sample-app/node_modules/
