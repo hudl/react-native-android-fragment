@@ -38,6 +38,7 @@ dependencies {
     compile project(':react-native-android-fragment')
 
     compile "com.facebook.react:react-native:0.46.2"
+    compile 'com.facebook.soloader:soloader:0.1.0+'
 
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
