@@ -37,8 +37,10 @@ import android.widget.Toast;
 
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.ReactApplication;
+import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactRootView;
+import com.facebook.react.common.LifecycleState;
 import com.facebook.react.devsupport.DoubleTapReloadRecognizer;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.modules.core.PermissionAwareActivity;
@@ -152,7 +154,15 @@ public class ReactFragment extends Fragment implements PermissionAwareActivity {
             mReactRootView = null;
         }
         if (getReactNativeHost().hasInstance()) {
-            getReactNativeHost().getReactInstanceManager().onHostDestroy(getActivity());
+            ReactInstanceManager reactInstanceMgr = getReactNativeHost().getReactInstanceManager();
+            reactInstanceMgr.onHostDestroy(getActivity());
+
+            // onDestroy may be called on a ReactFragment after another ReactFragment has been
+            // created and resumed with the same React Instance Manager. Make sure we only clean up
+            // host's React Instance Manager if no other React Fragment is actively using it.
+            if (reactInstanceMgr.getLifecycleState() != LifecycleState.RESUMED) {
+                getReactNativeHost().clear();
+            }
         }
     }
 
