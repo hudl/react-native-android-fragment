@@ -155,12 +155,12 @@ public class ReactFragment extends Fragment implements PermissionAwareActivity {
         }
         if (getReactNativeHost().hasInstance()) {
             ReactInstanceManager reactInstanceMgr = getReactNativeHost().getReactInstanceManager();
-            reactInstanceMgr.onHostDestroy(getActivity());
 
             // onDestroy may be called on a ReactFragment after another ReactFragment has been
             // created and resumed with the same React Instance Manager. Make sure we only clean up
             // host's React Instance Manager if no other React Fragment is actively using it.
             if (reactInstanceMgr.getLifecycleState() != LifecycleState.RESUMED) {
+                reactInstanceMgr.onHostDestroy(getActivity());
                 getReactNativeHost().clear();
             }
         }
