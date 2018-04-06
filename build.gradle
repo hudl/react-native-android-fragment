@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
-def libraryVersion = '0.43.2'
+def libraryVersion = '0.46.2.2'
 
 buildscript {
     repositories {
