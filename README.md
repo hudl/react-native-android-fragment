@@ -14,8 +14,8 @@ allprojects {
 }
 
 dependencies {
-  // Version will correspond to its dependnecy on React Native
-  compile 'com.github.hudl:react-native-android-fragment:v0.43.2'
+  // Version will correspond to its dependency on React Native
+  compile 'com.github.hudl:react-native-android-fragment:v0.46.2.2'
 }
 ```
 
@@ -25,7 +25,7 @@ Or Maven:
 <dependency>
   <groupId>com.hudl.oss</groupId>
   <artifactId>react-native-android-fragment</artifactId>
-  <version>0.43.2</version>
+  <version>0.46.2.2</version>
 </dependency>
 ```
 
