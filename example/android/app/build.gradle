@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.3"
 
     defaultConfig {
-        applicationId "com.hudl.oss.react.sampleapp"
+        applicationId "com.hudl.oss.react.fragment.sampleapp"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
