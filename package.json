@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-android-fragment",
-  "version": "0.46.2",
+  "version": "1.0.0",
   "description": "A utility library for facilitating React Native development with Android Fragments.",
   "repository": {
     "type": "git",

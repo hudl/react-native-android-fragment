@@ -1,33 +1,33 @@
 # react-native-android-fragment
 A utility library for facilitating React Native development with Android Fragments.
 
-## Download
-React Native Android Fragment isn't available via npm. This is intended to be used solely in an Android Project and therefore we are shipping this over jcenter (maven/gradle).
-You can download via Gradle:
+## Getting started
 
-```gradle
-allprojects {
-  repositories {
-    ...
-    maven { url 'https://jitpack.io' }
-  }
-}
+`$ npm install react-native-android-fragment --save`
 
-dependencies {
-  // Version will correspond to its dependency on React Native
-  compile 'com.github.hudl:react-native-android-fragment:v0.46.2.2'
-}
-```
+or
 
-Or Maven:
+`$ yarn add react-native-android-fragment`
 
-```xml
-<dependency>
-  <groupId>com.hudl.oss</groupId>
-  <artifactId>react-native-android-fragment</artifactId>
-  <version>0.46.2.2</version>
-</dependency>
-```
+### Mostly automatic installation
+
+`$ react-native link react-native-android-fragment`
+
+### Manual installation
+
+#### Android
+
+1. Open up `android/app/src/main/java/[...]/MainActivity.java`
+  - Add `import com.hudl.oss.react.fragment.ReactFragment;` to the imports at the top of the file
+2. Append the following lines to `android/settings.gradle`:
+      ```
+      include ':react-native-android-fragment'
+      project(':react-native-android-fragment').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-android-fragment/android')
+      ```
+3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+      ```
+      compile project(':react-native-android-fragment')
+      ```
 
 ## Usage
 The primary component in this library is [ReactFragment](https://github.com/hudl/react-native-android-fragment/blob/master/react-native-android-fragment/src/main/java/com/hudl/oss/react/fragment/ReactFragment.java)
@@ -61,8 +61,8 @@ NOTE: Make sure your environment is set up for [React Native](https://facebook.g
 
 - Clone the repo
 - Open a terminal and navigate to the root directory of your checkout
-- `cd sample-app`
-- `yarn`
-- Open the project in Android Studio and let everything build
-- Back in your terminal run `react-native start`
-- In Android Studio run the `app` on an emulator or your device
+- `yarn link`
+- `cd example`
+- `yarn link react-native-android-fragment`
+- `react-native link react-native-android-fragment`
+- `react-native run-android`
