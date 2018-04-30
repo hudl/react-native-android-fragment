@@ -17,17 +17,17 @@ or
 
 #### Android
 
-1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.hudl.oss.react.fragment.ReactFragment;` to the imports at the top of the file
-2. Append the following lines to `android/settings.gradle`:
+1. Append the following lines to `android/settings.gradle`:
       ```
       include ':react-native-android-fragment'
-      project(':react-native-android-fragment').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-android-fragment/android')
+      project(':react-native-android-fragment').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-android-fragment/android')
       ```
-3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+2. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
       ```
       compile project(':react-native-android-fragment')
       ```
+3. Open up `android/app/src/main/java/[...]/MainActivity.java`
+  - Add `import com.hudl.oss.react.fragment.ReactFragment;` to the imports at the top of the file
 
 ## Usage
 The primary component in this library is [ReactFragment](https://github.com/hudl/react-native-android-fragment/blob/master/react-native-android-fragment/src/main/java/com/hudl/oss/react/fragment/ReactFragment.java)
