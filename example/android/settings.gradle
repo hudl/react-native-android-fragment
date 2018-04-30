@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':react-native-android-fragment'
+project(':react-native-android-fragment').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-android-fragment/android')
+
+include ':app'
