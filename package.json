@@ -1,0 +1,23 @@
+
+{
+  "name": "react-native-android-fragment",
+  "version": "1.0.0",
+  "description": "A utility library for facilitating React Native development with Android Fragments.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hudl/react-native-android-fragment.git"
+  },
+  "homepage": "https://github.com/hudl/react-native-android-fragment#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": "hudl",
+  "license": "Apache-2.0",
+  "peerDependencies": {
+    "react-native": "^0.47.0"
+  }
+}
