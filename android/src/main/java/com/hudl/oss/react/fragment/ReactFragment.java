@@ -21,11 +21,8 @@ package com.hudl.oss.react.fragment;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -33,7 +30,6 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.facebook.infer.annotation.Assertions;
 import com.facebook.react.ReactApplication;
@@ -54,14 +50,8 @@ import com.facebook.react.modules.core.PermissionListener;
  */
 public class ReactFragment extends Fragment implements PermissionAwareActivity {
 
-    public static final int REQUEST_OVERLAY_CODE = 1111;
     public static final String ARG_COMPONENT_NAME = "arg_component_name";
     public static final String ARG_LAUNCH_OPTIONS = "arg_launch_options";
-
-    private static final String REDBOX_PERMISSION_MESSAGE =
-            "Overlay permissions need to be granted in order for react native apps to run in dev mode.";
-    private static final String REDBOX_PERMISSION_GRANTED_MESSAGE =
-            "Overlay permissions have been granted.";
 
     /**
      * @param componentName The name of the react native component
@@ -106,27 +96,11 @@ public class ReactFragment extends Fragment implements PermissionAwareActivity {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        boolean needToEnableDevMenu = false;
-
-        if (getReactNativeHost().getUseDeveloperSupport()
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                && !Settings.canDrawOverlays(getContext())) {
-            // Get permission to show redbox in dev builds.
-            needToEnableDevMenu = true;
-            Intent serviceIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()));
-            Toast.makeText(getContext(), REDBOX_PERMISSION_MESSAGE, Toast.LENGTH_LONG).show();
-            startActivityForResult(serviceIntent, REQUEST_OVERLAY_CODE);
-        }
-
         mReactRootView = new ReactRootView(getContext());
-
-        if (!needToEnableDevMenu) {
-            mReactRootView.startReactApplication(
-                    getReactNativeHost().getReactInstanceManager(),
-                    mComponentName,
-                    mLaunchOptions);
-        }
-
+        mReactRootView.startReactApplication(
+                getReactNativeHost().getReactInstanceManager(),
+                mComponentName,
+                mLaunchOptions);
         return mReactRootView;
     }
 
@@ -167,29 +141,6 @@ public class ReactFragment extends Fragment implements PermissionAwareActivity {
     }
 
     // endregion
-
-    /**
-     * This currently only checks to see if we've enabled the permission to draw over other apps.
-     * This is only used in debug/developer mode and is otherwise not used.
-     *
-     * @param requestCode Code that requested the activity
-     * @param resultCode  Code which describes the result
-     * @param data        Any data passed from the activity
-     */
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        if (requestCode == REQUEST_OVERLAY_CODE
-                && Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-                && Settings.canDrawOverlays(getContext())) {
-            mReactRootView.startReactApplication(
-                    getReactNativeHost().getReactInstanceManager(),
-                    mComponentName,
-                    mLaunchOptions);
-            Toast.makeText(getContext(), REDBOX_PERMISSION_GRANTED_MESSAGE, Toast.LENGTH_LONG).show();
-        }
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
