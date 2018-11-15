@@ -183,6 +183,13 @@ public class ReactFragment extends Fragment implements PermissionAwareActivity {
             getReactNativeHost().getReactInstanceManager().onBackPressed();
         }
     }
+    
+    /**
+     * Helper to update props passed to the React Native Component rendered by the fragment
+     */
+    public void setAppProperties(Bundle appProperties){
+        mReactRootView.setAppProperties(appProperties);
+    }
 
     /**
      * Helper to forward onKeyUp commands from our host Activity.
