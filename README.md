@@ -41,9 +41,33 @@ Fragment messagingFragment = new ReactFragment.Builder()
        .build();
 ```
 
-In your Activity make sure to override `onKeyUp()` in order to access the In-App Developer menu:
+In your Activity make sure to override `onBackPressed()` `onActivityResult()` `onNewIntent` `onKeyUp()` in order to access the In-App Developer menu:
 
 ```java
+@Override
+public void onBackPressed() {
+  Fragment activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+  if (activeFragment instanceof ReactFragment) {
+      ((ReactFragment) activeFragment).onBackPressed();
+  }
+}
+
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+  Fragment activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+  if (activeFragment instanceof ReactFragment) {
+      ((ReactFragment) activeFragment).onActivityResult(requestCode, resultCode, data);
+  }
+}
+
+@Override
+protected void onNewIntent(Intent intent) {
+  Fragment activeFragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+  if (activeFragment instanceof ReactFragment) {
+      ((ReactFragment) activeFragment).onNewIntent(intent);
+  }
+}
+
 @Override
 public boolean onKeyUp(int keyCode, KeyEvent event) {
     boolean handled = false;
