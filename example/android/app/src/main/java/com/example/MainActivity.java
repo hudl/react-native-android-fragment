@@ -1,8 +1,9 @@
 package com.example;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.KeyEvent;
 
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
@@ -48,5 +49,29 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
             handled = ((ReactFragment) activeFragment).onKeyUp(keyCode, event);
         }
         return handled || super.onKeyUp(keyCode, event);
+    }
+
+    @Override
+    public void onBackPressed() {
+        Fragment activeFragment = getSupportFragmentManager().findFragmentById(R.id.container_main);
+        if (activeFragment instanceof ReactFragment) {
+            ((ReactFragment) activeFragment).onBackPressed();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Fragment activeFragment = getSupportFragmentManager().findFragmentById(R.id.container_main);
+        if (activeFragment instanceof ReactFragment) {
+            ((ReactFragment) activeFragment).onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        Fragment activeFragment = getSupportFragmentManager().findFragmentById(R.id.container_main);
+        if (activeFragment instanceof ReactFragment) {
+            ((ReactFragment) activeFragment).onNewIntent(intent);
+        }
     }
 }
