@@ -21,6 +21,7 @@ package com.hudl.oss.react.fragment;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -181,6 +182,18 @@ public class ReactFragment extends Fragment implements PermissionAwareActivity {
     public void onBackPressed() {
         if (getReactNativeHost().hasInstance()) {
             getReactNativeHost().getReactInstanceManager().onBackPressed();
+        }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (getReactNativeHost().hasInstance()) {
+            getReactNativeHost().getReactInstanceManager().onActivityResult(getActivity(), requestCode, resultCode, data);
+        }
+    }
+
+    public void onNewIntent(Intent intent) {
+        if (getReactNativeHost().hasInstance()) {
+            getReactNativeHost().getReactInstanceManager().onNewIntent(intent);
         }
     }
 
