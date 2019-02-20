@@ -16,6 +16,7 @@ def getLibraryName = { ->
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', 26)
+    
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion safeExtGet('targetSdkVersion', 26)
