@@ -1,3 +1,7 @@
+# DEPRECATED
+This library has been deprecated and is no longer in use at Hudl.
+If you've been using this library, please consider adopting [ReactFragment](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/ReactFragment.java) in the main react-native repo.
+
 # react-native-android-fragment
 A utility library for facilitating React Native development with Android Fragments.
 
